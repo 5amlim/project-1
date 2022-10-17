@@ -1,0 +1,87 @@
+* {
+    background-color: rgb(147, 134, 219);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    text-align: center;
+}
+
+/* img {
+    height: 80px;
+    width: 80px;
+    border: 1px solid rgb(250, 249, 249);
+    margin: 20px;
+    border-radius: 15px;
+} */
+
+.tile {
+    height: 80px;
+    width: 80px;
+    background-color: rgb(181, 152, 235);
+    border: 1px solid rgb(250, 249, 249);
+    margin: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas:
+        "rA rA rA rA rA rA"
+        "rB rB rB rB rB rB"
+        "rC rC rC rC rC rC"
+    ;
+}
+
+#a1 #a2 #a3 #a4 #a5 #a6 {
+    grid-area: rA;
+}
+
+#b1 #b2 #b3 #b4 #b5 #b6 {
+    grid-area: rB;
+}
+
+#c1 #c2 #c3 #c4 #c5 #c6 {
+    grid-area: rC;
+}
+
+.game-title {
+    color: rgb(93, 69, 214);
+}
+
+.reset-button {
+    background-color: rgb(127, 209, 218);
+    color: rgb(32, 62, 66);
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+/* why can't i add more than 1 id */
+/* want to get image to show up only when i click on it */
+/* use js to remove background image */
+
+/* #a3 {
+    background-image: url(https://i.pinimg.com/236x/37/5c/e8/375ce83551aafaec5f2d5ffef338b2fa--pixel-art-minecraft.jpg);
+    background-size: 80px;
+    height: 80px;
+    width: 80px;
+    border: 1px solid rgb(250, 249, 249);
+    margin: 20px;
+    border-radius: 15px;
+}
+
+#a2 {
+    background-image: url(https://ih1.redbubble.net/image.2168110267.5539/poster,840x830,f8f8f8-pad,1000x1000,f8f8f8.jpg);
+    background-size: 80px;
+    height: 80px;
+    width: 80px;
+    border: 1px solid rgb(250, 249, 249);
+    margin: 20px;
+    border-radius: 15px;
+} */
+
+.tile-back {
+    background-color: aqua;
+    border: 1px solid rgb(250, 249, 249);
+}

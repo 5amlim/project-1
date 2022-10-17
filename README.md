@@ -8,17 +8,17 @@ There are many variations of memory game on the web. For my first project, I wan
 
 `Pseudocode`
 ```
-Assign card pictures class
-covered by cardback class
+Assign tile pictures class
+covered by tileback class
 
-flip card ()
+flip tile ()
 if number of picks is 2:
     check to see if tile 1 === tile 2{
-        make disappear ()
+       remove background image ()
     }
 
-else if card 1 !== 2
-flip card 1 & 2 back{
+else if tile 1 !== 2
+flip tile 1 & 2 back{
     remove class ()
 }
 
