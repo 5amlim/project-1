@@ -58,11 +58,6 @@
     cursor: pointer;
 }
 
-.tile-back {
-    background-color: aqua;
-    border: 1px solid rgb(250, 249, 249);
-}
-
 .message {
     color: whitesmoke;
     font-weight: bold;

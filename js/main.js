@@ -89,7 +89,6 @@ const clickTile = function (tile) {
         tile.style.backgroundSize = 'contain'
     }
     choiceArray.push(tile)
-    console.log(choiceArray)
     if (choiceArray.length === 2){
         checkIfTileValuesMatch(choiceArray[0], choiceArray[1])
         choiceArray = []
@@ -100,10 +99,8 @@ const clickTile = function (tile) {
 //* checkIfTileValuesMatch (tile1, tile2)
 const checkIfTileValuesMatch = function (tile1, tile2) {
     if (tile1.style.backgroundImage === tile2.style.backgroundImage) {
-        console.log('tiles match')
         handleMatchedPair(tile1, tile2)
     } else {
-        console.log("tiles don't match")
         handleUnmatchedPair(tile1, tile2)
     }
 }
@@ -129,7 +126,6 @@ const handleMatchedPair = function (tile1, tile2){
     }
     console.log(tilesLeft)
     if (tilesLeft == false){
-        console.log('tiles gone')
         message.innerText = 'You Win!'
     }
 }

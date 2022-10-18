@@ -2,18 +2,32 @@
 
 ## Background:
 
-- Game choice: Memory Game
-  There are many variations of memory game on the web. For my first project, I wanted to make this game aesthetically pleasing to make it a little more interesting.
+### Game choice: Memory Game
 
-`Wireframe`
+There are many variations of memory game on the web. For my first project, I wanted to make this game aesthetically pleasing to make it a little more interesting. Inspired by pixel art.
+
+`Wireframe` <br>
 <img src="https://i.imgur.com/SwasZxI.png" width="900">
 
 `Pseudocode`
 
 ```JS
-// Assign tile pictures class
-// covered by tileback class
+// assign tile pictures class
+    <div class='tile'></div>
 
+// target clicked tile
+const onTileClick = function (event) {
+    clickTile(event.target)
+}
+
+// matched and unmatched tiles
+    matched tile
+        - needs JS codes(remove background)
+    unmatched tile
+        - needs JS codes(flip back - remove background image)
+// handle matched and unmatched pairs
+    // handleMatchedPair
+        // set timeout to remove the matched pair
 const handleMatchedPair = function (tile1, tile2){
     tile1.classList.remove('tile')
     tile1.classList.add('matched-tile')
@@ -25,13 +39,15 @@ const handleMatchedPair = function (tile1, tile2){
     setTimeout(flipMatchedTile, 1000, tile2)
     tile2.removeEventListener('click', onTileClick)
 }
-
+    // handleUnmatchedPair
+        // set timeout to execute flipUnmatchedTile on both tiles
 const handleUnmatchedPair = function (tile1, tile2){
     setTimeout(flipUnmatchedTile, 2000, tile1)
     setTimeout(flipUnmatchedTile, 2000, tile2)
 }
 
-// returns true or false
+// check if tile values match
+    // checkIfTileValuesMatch: returns true or false
 const checkIfTileValuesMatch = function (tile1, tile2) {
   if (tile1.style.backgroundImage === tile2.style.backgroundImage) {
     return true
@@ -39,21 +55,18 @@ const checkIfTileValuesMatch = function (tile1, tile2) {
     return false
   }
 }
-// what to do after checking
+// implement handleMatchedPair/handleUnmatchedPair funtions after checking with checkIfTileValuesMatch
 if (checkIfTileValuesMatch === true) {
     handleMatchedPair()
 } else if (checkIfTileValuesMatch === false){
     handleUnmatchedPair()
 }
----------------------------------------------------
-when all divs are out of class
-    h2.innerText = "You win"
 
-
-reset game button{
+// reset button
+reset game button {
     reload page()
 }
 
-BONUS make the you win message pop up with a replay button
+## BONUS make the you win message pop up with a replay button
 
 ```
