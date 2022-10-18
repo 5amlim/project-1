@@ -1,56 +1,37 @@
 /*----- constants -----*/
+
+
+
+
+
+/*----- app's state (variables) -----*/
+
+
+/*----- cached element references -----*/
+const tiles = document.querySelectorAll('.tile')
+const motherTiles = document.querySelector('.tiles')
+const message = document.querySelector('.message')
+const reset = document.querySelector('.reset-button')
+
+
+/*----- functions -----*/
+
+//* onTileClick (event)
+const onTileClick = function (event) {
+    clickTile(event.target)
+}
+
+//* flipMatchedTile (tile)
 const flipMatchedTile = function (tile) {
     tile.style.background = 'none'
 }
 
+//* flipUnmatchedTile (tile)
 const flipUnmatchedTile = function (tile) {
     tile.style.backgroundImage = 'none'
 }
 
-let choiceArray = []
-
-// handle matched and unmatched
-const handleMatchedPair = function (tile1, tile2){
-    tile1.classList.remove('tile')
-    tile1.classList.add('matched-tile')
-    setTimeout(flipMatchedTile, 1000, tile1)
-    tile1.removeEventListener('click', onTileClick)
-
-    tile2.classList.remove('tile')
-    tile2.classList.add('matched-tile')
-    setTimeout(flipMatchedTile, 1000, tile2)
-    tile2.removeEventListener('click', onTileClick)
-    
-    // ! need to review. why is motherTiles.forEach not a function?
-    // let tilesLeft = false;
-    // motherTiles.forEach((childTile) => {
-    //     if (childTile.classList.contains('tile')){
-    //         tilesLeft = true
-    //     } 
-    // })
-    // if (tilesLeft = false){
-    //     message.textContent = 'You Win!'
-    // }
-   
-}
-
-const handleUnmatchedPair = function (tile1, tile2){
-    setTimeout(flipUnmatchedTile, 1000, tile1)
-    setTimeout(flipUnmatchedTile, 1000, tile2)
-}
-
-//* check for match. returns true or false
-const checkIfTileValuesMatch = function (tile1, tile2) {
-    if (tile1.style.backgroundImage === tile2.style.backgroundImage) {
-        console.log('tiles match')
-      handleMatchedPair(tile1, tile2)
-    } else {
-        console.log("tiles don't match")
-      handleUnmatchedPair(tile1, tile2)
-    }
-}
-
-//* what to do after checking
+//* clickTile(tile)
 const clickTile = function (tile) {
     if (tile.id === 'a1') {
         tile.style.backgroundImage = "url('./images/cat.png')"
@@ -113,35 +94,63 @@ const clickTile = function (tile) {
         checkIfTileValuesMatch(choiceArray[0], choiceArray[1])
         choiceArray = []
     }
-
+    
 }
 
-// execute function on targeted tile
-const onTileClick = function (event) {
-    clickTile(event.target)
+//* checkIfTileValuesMatch (tile1, tile2)
+const checkIfTileValuesMatch = function (tile1, tile2) {
+    if (tile1.style.backgroundImage === tile2.style.backgroundImage) {
+        console.log('tiles match')
+        handleMatchedPair(tile1, tile2)
+    } else {
+        console.log("tiles don't match")
+        handleUnmatchedPair(tile1, tile2)
+    }
 }
-// link to HTML
-const tiles = document.querySelectorAll('.tile')
-// add event listeners
-tiles.forEach(function (tile) {
-    tile.addEventListener('click', onTileClick)
-})
-const motherTiles = document.querySelector('.tiles')
-const message = document.querySelector('.message')
-/*----- app's state (variables) -----*/
 
+//* handleMatchedPair(tile1, tile2)
+let choiceArray = []
+const handleMatchedPair = function (tile1, tile2){
+    tile1.classList.remove('tile')
+    tile1.classList.add('matched-tile')
+    setTimeout(flipMatchedTile, 1000, tile1)
+    tile1.removeEventListener('click', onTileClick)
+    
+    tile2.classList.remove('tile')
+    tile2.classList.add('matched-tile')
+    setTimeout(flipMatchedTile, 1000, tile2)
+    tile2.removeEventListener('click', onTileClick)
+    
+    let tilesLeft = false;
+    for (let i=0; i<motherTiles.children.length; i++){
+        if (motherTiles.children[i].classList.contains('tile')){
+            tilesLeft = true
+        } 
+    }
+    console.log(tilesLeft)
+    if (tilesLeft == false){
+        console.log('tiles gone')
+        message.innerText = 'You Win!'
+    }
+}
 
-/*----- cached element references -----*/
+//* handleUnmatchedPair (tile1, tile2)
+const handleUnmatchedPair = function (tile1, tile2){
+    setTimeout(flipUnmatchedTile, 1000, tile1)
+    setTimeout(flipUnmatchedTile, 1000, tile2)
+}
 
-/*----- event listeners -----*/
-
-
-/*----- functions -----*/
-
-
-// reset button---------------------------------------
-const reset = document.querySelector('.reset-button')
+//* reset button
 const onResetClicked = function (event) {
     location.reload()
 }
+
+/*----- event listeners -----*/
+
+//* tile
+tiles.forEach(function (tile) {
+    tile.addEventListener('click', onTileClick)
+})
+
+//* reset button
 reset.addEventListener('click', onResetClicked)

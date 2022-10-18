@@ -10,7 +10,7 @@
 
 `Pseudocode`
 
-```Js
+```JS
 // Assign tile pictures class
 // covered by tileback class
 
@@ -31,7 +31,6 @@ const handleUnmatchedPair = function (tile1, tile2){
     setTimeout(flipUnmatchedTile, 2000, tile2)
 }
 
-
 // returns true or false
 const checkIfTileValuesMatch = function (tile1, tile2) {
   if (tile1.style.backgroundImage === tile2.style.backgroundImage) {
@@ -47,9 +46,8 @@ if (checkIfTileValuesMatch === true) {
     handleUnmatchedPair()
 }
 ---------------------------------------------------
-when all lis are out of class
-    push message ()"You win"
-    stop game()
+when all divs are out of class
+    h2.innerText = "You win"
 
 
 reset game button{
