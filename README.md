@@ -1,31 +1,56 @@
 # `Memory Game`
+
 ## Background:
+
 - Game choice: Memory Game
-There are many variations of memory game on the web. For my first project, I wanted to make this game aesthetically pleasing to make it a little more interesting.
+  There are many variations of memory game on the web. For my first project, I wanted to make this game aesthetically pleasing to make it a little more interesting.
 
 `Wireframe`
 <img src="https://i.imgur.com/SwasZxI.png" width="900">
 
 `Pseudocode`
-```
-Assign tile pictures class
-covered by tileback class
 
-flip tile ()
-if number of picks is 2:
-    check to see if tile 1 === tile 2{
-       remove background image ()
-    }
+```Js
+// Assign tile pictures class
+// covered by tileback class
 
-else if tile 1 !== 2
-flip tile 1 & 2 back{
-    remove class ()
+const handleMatchedPair = function (tile1, tile2){
+    tile1.classList.remove('tile')
+    tile1.classList.add('matched-tile')
+    setTimeout(flipMatchedTile, 1000, tile1)
+    tile1.removeEventListener('click', onTileClick)
+
+    tile2.classList.remove('tile')
+    tile2.classList.add('matched-tile')
+    setTimeout(flipMatchedTile, 1000, tile2)
+    tile2.removeEventListener('click', onTileClick)
 }
 
-when all li's are out of class{
+const handleUnmatchedPair = function (tile1, tile2){
+    setTimeout(flipUnmatchedTile, 2000, tile1)
+    setTimeout(flipUnmatchedTile, 2000, tile2)
+}
+
+
+// returns true or false
+const checkIfTileValuesMatch = function (tile1, tile2) {
+  if (tile1.style.backgroundImage === tile2.style.backgroundImage) {
+    return true
+  } else {
+    return false
+  }
+}
+// what to do after checking
+if (checkIfTileValuesMatch === true) {
+    handleMatchedPair()
+} else if (checkIfTileValuesMatch === false){
+    handleUnmatchedPair()
+}
+---------------------------------------------------
+when all lis are out of class
     push message ()"You win"
     stop game()
-}
+
 
 reset game button{
     reload page()

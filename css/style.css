@@ -23,6 +23,15 @@
     cursor: pointer;
 }
 
+.matched-tile {
+    height: 80px;
+    width: 80px;
+    background-color: rgb(147, 134, 219);
+    border: 1px solid rgb(147, 134, 219);
+    margin: 20px;
+    border-radius: 15px;
+}
+
 .tiles {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -84,4 +93,10 @@
 .tile-back {
     background-color: aqua;
     border: 1px solid rgb(250, 249, 249);
+}
+
+footer {
+    position: absolute;
+    color: rgb(182, 161, 234);
+    bottom: 20px;
 }
