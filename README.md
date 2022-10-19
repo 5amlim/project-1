@@ -28,6 +28,7 @@ const onTileClick = function (event) {
 // handle matched and unmatched pairs
     // handleMatchedPair
         // set timeout to remove the matched pair
+        // remove event listener for that tile
 const handleMatchedPair = function (tile1, tile2){
     tile1.classList.remove('tile')
     tile1.classList.add('matched-tile')

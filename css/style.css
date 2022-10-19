@@ -33,6 +33,7 @@
         "rB rB rB rB rB rB"
         "rC rC rC rC rC rC"
     ;
+    place-items: center;
 }
 
 #a1 #a2 #a3 #a4 #a5 #a6 {
