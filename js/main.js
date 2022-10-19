@@ -98,7 +98,7 @@ const clickTile = function (tile) {
 
 //* checkIfTileValuesMatch (tile1, tile2)
 const checkIfTileValuesMatch = function (tile1, tile2) {
-    if (tile1.style.backgroundImage === tile2.style.backgroundImage) {
+    if (tile1.style.backgroundImage === tile2.style.backgroundImage && tile1.id !== tile2.id) {
         handleMatchedPair(tile1, tile2)
     } else {
         handleUnmatchedPair(tile1, tile2)
