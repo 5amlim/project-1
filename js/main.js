@@ -1,12 +1,3 @@
-/*----- constants -----*/
-
-
-
-
-
-/*----- app's state (variables) -----*/
-
-
 /*----- cached element references -----*/
 const tiles = document.querySelectorAll('.tile')
 const motherTiles = document.querySelector('.tiles')
@@ -124,7 +115,6 @@ const handleMatchedPair = function (tile1, tile2){
             tilesLeft = true
         } 
     }
-    console.log(tilesLeft)
     if (tilesLeft == false){
         message.innerText = 'You Win!'
     }
