@@ -71,3 +71,23 @@ reset game button {
 ## BONUS make the you win message pop up with a replay button
 
 ```
+
+## Free the animals
+
+There are 9 pairs of animals trapped behind the tiles. You are trying to free them but they can only escape when travelling in pairs. <br>
+Use your memory to match each pair to free them from the entrapment. Try to limit the number of moves to avoid getting caught.
+
+### Screenshot
+
+<img src="https://i.imgur.com/B6WSHTX.png" width="900">
+<br>
+
+### Technologies used
+
+Wireframe: sketched using miro.com
+<br>
+Game: HTML, JavaScript, CSS
+<br>
+Link: https://5amlim.github.io/project-1/
+<br>
+Next Steps: add animations, randomise the tiles, add levels
