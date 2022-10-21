@@ -1,3 +1,6 @@
+/*----- variables -----*/
+let choiceArray = []
+
 /*----- cached element references -----*/
 const tiles = document.querySelectorAll('.tile')
 const motherTiles = document.querySelector('.tiles')
@@ -6,7 +9,6 @@ const reset = document.querySelector('.reset-button')
 
 
 /*----- functions -----*/
-
 //* onTileClick (event)
 const onTileClick = function (event) {
     clickTile(event.target)
@@ -97,7 +99,6 @@ const checkIfTileValuesMatch = function (tile1, tile2) {
 }
 
 //* handleMatchedPair(tile1, tile2)
-let choiceArray = []
 const handleMatchedPair = function (tile1, tile2){
     tile1.classList.remove('tile')
     tile1.classList.add('matched-tile')
